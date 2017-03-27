@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<input type="text">
+
+<button>Search</button>
+<button>Show All</button>
+
+<p id="storedInput" style="display:none"></p>
+
+<div style="display:none">
+<p>Renato Korus</p>
+<p>Marcia Brugger</p>
+<p>Kizzie Allee</p>
+<p>Dawn Alfieri</p>
+<p>Phillis Patman</p>
+<p>Jamal Rowlett</p>
+<p>Jaunita Kirksey</p>
+<p>Mallory Thomure</p>
+<p>Marc Olmos</p>
+<p>Leland Roten</p>
+<p>Keila Lawalin</p>
+<p>Veda Vaquera</p>
+<p>Fiona Stutler</p>
+<p>Donette Lamothe</p>
+<p>Carmelo Pape</p>
+<p>Lacy Busick</p>
+<p>Rico Zeitz</p>
+<p>Long Pipkins</p>
+<p>Meridith Agostini</p>
+<p>Jennie Buchholz</p>
+<p>Emelina Mac</p>
+<p>Margaretta Delamora</p>
+<p>Sunni Enlow</p>
+<p>Cherilyn Schurg</p>
+<p>Clarine Theurer</p>
+<p>Latia Barth</p>
+<p>Zoraida Rozell</p>
+<p>Agnes Ditch</p>
+<p>Dominique Banning</p>
+<p>Vergie Nilles</p>
+<p>Gita Kintner</p>
+<p>Carmel Lesh</p>
+<p>Tricia Sanks</p>
+<p>Marge Kraemer</p>
+<p>Merry Able</p>
+<p>Danica Yearsley</p>
+<p>Davina Labombard</p>
+<p>Mercy Mifflin</p>
+<p>Ariane Batiste</p>
+<p>Quinton Spiegel</p>
+<p>Carolyne Ownbey</p>
+<p>Bradly Hovey</p>
+<p>Anita Keel</p>
+<p>Camille Mccain</p>
+<p>Brooks Hilyard</p>
+<p>Joel Collins</p>
+<p>Kittie Durling</p>
+<p>Nicolle Klocke</p>
+<p>Quintin Segawa</p>
+<p>Zoe Uchida</p>
+</div>
+
+<div id="demo"></div>
+
+<script>
+var input1 = document.getElementsByTagName('input')[0],
+	button4Filter = document.getElementsByTagName('button')[0],
+	button4All = document.getElementsByTagName('button')[1],
+	storedInput = document.getElementById('storedInput'),
+	storedData = document.getElementsByTagName('div')[0],
+	inputResults = document.getElementById('demo');
+
+button4Filter.addEventListener('click', filterResults);
+button4All.addEventListener('click', allResults);
+
+function filterResults() {
+	storedInput.innerHTML = input1.value;
+	
+	//clear previous results
+	inputResults.innerHTML = '';
+
+
+	//monitor case sensitivity - capitalises first letter of input value string
+	if(storedInput.innerHTML.charAt(0) != storedInput.innerHTML.charAt(0).toUpperCase() ) {
+		storedInput.innerHTML = storedInput.innerHTML.charAt(0).toUpperCase() + storedInput.innerHTML.substr(1);
+	}
+	
+	//display following message if nothing is entered
+	if ( input1.value == '') {
+		inputResults.innerHTML = '<p>Enter something man, gosh</p>'
+	} else {
+	
+		//find and show matched data results if input is valid
+		for(i = 0; i < storedData.getElementsByTagName('p').length; i++ ) {
+
+			var str = storedData.getElementsByTagName('p')[i].innerHTML,
+				checkMatch = str.includes(storedInput.textContent);
+			
+			// note: '+=' is to show multiple results rather than the last matching result
+			if(checkMatch == true) {
+				inputResults.innerHTML += '<p>'+str+'</p>';
+			}
+		}
+	}
+
+	//if no results found, notify user
+	if ( inputResults.innerHTML == '' ) {
+		inputResults.innerHTML = '<p>No results for "' + storedInput.textContent + '"';
+	}
+}
+
+function allResults() {
+	inputResults.innerHTML = storedData.innerHTML;
+}
+</script>
+
+</body>
+</html>
