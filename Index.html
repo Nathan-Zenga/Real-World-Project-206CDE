@@ -13,13 +13,11 @@
 	<title>HOME Prototype 1</title>
 <!-- importing jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<!-- main javascript (jQuery) script for RWP -->
-	<script src="rwp-js.js"></script>
 </head>
 <body>
-<div class="intro">
+<!-- <div class="intro">
 	<p>Loading...</p>
-</div>
+</div> -->
 <a><img class="logo" src="Fairly Unique Music logo.png" alt="logo"></a>
 <nav>
 	<table width="100%" height="100%">
@@ -115,21 +113,76 @@
 		</tr>
 	</table>
 </section>
+<section class="search-section">
+	<h3>SEARCH YOUR FAVOURITES</h3>
+	<input id="musicSearch" type="text">
+	<button id="button4Filter">Search</button>
+	<button id="button4All">Show All</button>
+
+	<p id="storedInput" style="display:none"></p>
+
+	<div id="storedData" style="display:none">
+	<p>Renato Korus</p>
+	<p>Marcia Brugger</p>
+	<p>Kizzie Allee</p>
+	<p>Dawn Alfieri</p>
+	<p>Phillis Patman</p>
+	<p>Jamal Rowlett</p>
+	<p>Jaunita Kirksey</p>
+	<p>Mallory Thomure</p>
+	<p>Marc Olmos</p>
+	<p>Leland Roten</p>
+	<p>Keila Lawalin</p>
+	<p>Veda Vaquera</p>
+	<p>Fiona Stutler</p>
+	<p>Donette Lamothe</p>
+	<p>Carmelo Pape</p>
+	<p>Lacy Busick</p>
+	<p>Rico Zeitz</p>
+	<p>Long Pipkins</p>
+	<p>Meridith Agostini</p>
+	<p>Jennie Buchholz</p>
+	<p>Emelina Mac</p>
+	<p>Margaretta Delamora</p>
+	<p>Sunni Enlow</p>
+	<p>Cherilyn Schurg</p>
+	<p>Clarine Theurer</p>
+	<p>Latia Barth</p>
+	<p>Zoraida Rozell</p>
+	<p>Agnes Ditch</p>
+	<p>Dominique Banning</p>
+	<p>Vergie Nilles</p>
+	<p>Gita Kintner</p>
+	<p>Carmel Lesh</p>
+	<p>Tricia Sanks</p>
+	<p>Marge Kraemer</p>
+	<p>Merry Able</p>
+	<p>Danica Yearsley</p>
+	<p>Davina Labombard</p>
+	<p>Mercy Mifflin</p>
+	<p>Ariane Batiste</p>
+	<p>Quinton Spiegel</p>
+	<p>Carolyne Ownbey</p>
+	<p>Bradly Hovey</p>
+	<p>Anita Keel</p>
+	<p>Camille Mccain</p>
+	<p>Brooks Hilyard</p>
+	<p>Joel Collins</p>
+	<p>Kittie Durling</p>
+	<p>Nicolle Klocke</p>
+	<p>Quintin Segawa</p>
+	<p>Zoe Uchida</p>
+	</div>
+
+	<div id="output"></div>
+
+</section>
 <div id="toTop">Back to top</div>
 <!-- 		<div class="play"><div>Play</div></div> -->
 <!-- 		<img class="draftpic" src="draftpic.jpg" /> -->
-	<script>
-	var style = document.createElement('style');
-	style.type = 'text/css';
-	style.innerHTML = '.textBigger { font-size: 30px; }';
-	document.getElementsByTagName('head')[0].appendChild(style);
-	
-	var txt = document.getElementsByClassName('about-section')[0].getElementsByTagName('p'); 
-	function enlargeText() {
-		for(i = 0; i < txt.length ; i++) {
-			txt[i].classList.toggle('textBigger');
-		}
-	}
-	</script>
+
+<!-- main javascript (jQuery) script for RWP -->
+	<script src="rwp-js.js"></script>
+
 </body>
 </html>

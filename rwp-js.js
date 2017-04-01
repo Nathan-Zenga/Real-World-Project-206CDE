@@ -1,3 +1,71 @@
+//-------------------- TEXT SIZE ENLARGEMENT --------------------
+var style = document.createElement('style');
+style.type = 'text/css';
+style.innerHTML = '.textBigger { font-size: 30px; }';
+document.getElementsByTagName('head')[0].appendChild(style);
+
+var txt = document.getElementsByClassName('about-section')[0].getElementsByTagName('p'); 
+function enlargeText() {
+	for(i = 0; i < txt.length ; i++) {
+		txt[i].classList.toggle('textBigger');
+	}
+}
+
+
+//-------------------- SEARCH FILTERING --------------------
+var input1 = document.getElementById('musicSearch'),
+	button4Filter = document.getElementById('button4Filter'),
+	button4All = document.getElementById('button4All'),
+	storedInput = document.getElementById('storedInput'),
+	storedData = document.getElementById('storedData'),
+	inputResults = document.getElementById('output');
+
+button4Filter.addEventListener('click', filterResults);
+button4All.addEventListener('click', allResults);
+
+function filterResults() {
+	storedInput.innerHTML = input1.value;
+	
+	//clear previous results
+	inputResults.innerHTML = '';
+
+
+	//monitor case sensitivity - capitalises first letter of input value string
+	if(storedInput.innerHTML.charAt(0) != storedInput.innerHTML.charAt(0).toUpperCase() ) {
+		storedInput.innerHTML = storedInput.innerHTML.charAt(0).toUpperCase() + storedInput.innerHTML.substr(1);
+	}
+	
+	//display following message if nothing is entered
+	if ( input1.value == '') {
+		inputResults.innerHTML = '<p>Enter something man, gosh</p>'
+	} else {
+	
+		//find and show matched data results if input is valid
+		for(i = 0; i < storedData.getElementsByTagName('p').length; i++ ) {
+
+			var str = storedData.getElementsByTagName('p')[i].innerHTML,
+				checkMatch = str.includes(storedInput.textContent);
+			
+			// note: '+=' is to show multiple results rather than the last matching result
+			if(checkMatch == true) {
+				inputResults.innerHTML += '<p>'+str+'</p>';
+			}
+		}
+	}
+
+	//if no results found, notify user
+	if ( inputResults.innerHTML == '' ) {
+		inputResults.innerHTML = '<p>No results for "' + storedInput.textContent + '"';
+	}
+}
+
+function allResults() {
+	inputResults.innerHTML = storedData.innerHTML;
+}
+
+
+//-------------------- OTHERS (jQuery) --------------------
+
 $(document).ready(function() {
 	// $("input").focus();
 	// var mySound = document.createElement('audio');
