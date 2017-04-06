@@ -1,21 +1,25 @@
 //-------------------- TEXT SIZE ENLARGEMENT --------------------
+
+//dynamically creating internal <style> element consisting of class .textBigger to prepare for toggling
 var style = document.createElement('style');
 style.type = 'text/css';
-style.innerHTML = '.textBigger { font-size: 30px; }';
+style.innerHTML = '.textBigger { transition: .5s; font-size: 1.5em; }';
 document.getElementsByTagName('head')[0].appendChild(style);
 
-var txt = document.getElementsByClassName('about-section')[0].getElementsByTagName('p'); 
+//function called to toggle text size
+var txt = document.getElementsByClassName('about-section')[0].getElementsByTagName('p');
 function enlargeText() {
 	for(i = 0; i < txt.length ; i++) {
 		txt[i].classList.toggle('textBigger');
 	}
 }
 
-
 //-------------------- SEARCH FILTERING --------------------
+
 var input1 = document.getElementById('musicSearch'),
 	button4Filter = document.getElementById('button4Filter'),
 	button4All = document.getElementById('button4All'),
+
 	storedInput = document.getElementById('storedInput'),
 	storedData = document.getElementById('storedData'),
 	inputResults = document.getElementById('output');
@@ -29,18 +33,17 @@ function filterResults() {
 	//clear previous results
 	inputResults.innerHTML = '';
 
-
-	//monitor case sensitivity - capitalises first letter of input value string
+	//monitor case sensitivity - capitalises first letter of input text value
 	if(storedInput.innerHTML.charAt(0) != storedInput.innerHTML.charAt(0).toUpperCase() ) {
 		storedInput.innerHTML = storedInput.innerHTML.charAt(0).toUpperCase() + storedInput.innerHTML.substr(1);
 	}
 	
 	//display following message if nothing is entered
 	if ( input1.value == '') {
-		inputResults.innerHTML = '<p>Enter something man, gosh</p>'
+		inputResults.innerHTML = "<p>You haven't entered anything...</p>"
 	} else {
 	
-		//find and show matched data results if input is valid
+		//find and show matched data results (names of artists) if input is valid
 		for(i = 0; i < storedData.getElementsByTagName('p').length; i++ ) {
 
 			var str = storedData.getElementsByTagName('p')[i].innerHTML,
@@ -74,20 +77,29 @@ $(document).ready(function() {
 	// 	mySound.play().dequeue();
 	// 	$("body").animate({backgroundColor: 'blue'}, 1000);
 	// });
+// waiting time before growing out text and loadscreen fading out
 	$(".intro p").delay(5000).animate({fontSize: "3em", opacity: "0"}, 550, "linear");
 	$(".intro").delay(5550).fadeOut(1000);
+
+// displays social button when 'sign up' is clicked
 	$("#signup").click(function () {
 		$(".sign table").fadeOut();
 		$(".btn-block").fadeIn().animate({top: "+=50px"}, {duration: 400, queue: false});
 	});
-	$(".btn-block").click(function() {
-		$(".sign table").fadeIn(); $(this).fadeOut(200).animate({top: "-=50px"}, 300);
-	});
+	// $(".btn-block").click(function() {
+	// 	$(".sign table").fadeIn(); $(this).fadeOut(200).animate({top: "-=50px"}, 300);
+	// });
+
+// adjusting column span of first four nav links across all columns of the table
 	$("nav tr:nth-child(-n+4) td").attr('colspan','3');
+
+// show nav links
 	$(".menuIcon").click(function() {
 		$(this).children().toggle("slide");
 		$("nav").toggleClass("menuMove");
 	});
+
+// close nav links, alternative method - by clicking outside the nav links
 	$("section, #toTop").click(function() {
 		$(".menuIcon span:first-child").show("slide");
 		$(".menuIcon span:last-child").hide("slide");
@@ -103,6 +115,7 @@ $(document).ready(function() {
 	// 	return color;
 	// }
 
+// go to page section, by correspondence of index number of both section and nav table row
 	$("nav tr").click(function() {
 		if($(this).index() >= 1) {
 			$("html, body").animate({ scrollTop: $("body").find("section").eq($(this).index()).offset().top }, 500);

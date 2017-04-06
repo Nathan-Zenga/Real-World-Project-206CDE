@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 <!-- Bootstrap framework -->
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 <!-- for the social media buttons -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css" rel="stylesheet">
 <!-- for the social media FA symbols and buttons -->
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<!-- main stylesheet for RWP (real world project)-->
+<!-- main stylesheet for project-->
 	<link rel="stylesheet" type="text/css" href="rwp-style.css">
 	<title>HOME Prototype 1</title>
 <!-- importing jQuery library -->
@@ -35,12 +36,12 @@
 		</tr>
 		<tr>
 			<td> <a target="_blank"><span class="fa fa-twitter" aria-hidden="true"></span></a> </td>
-			<td> <a target="_blank"><span class="fa fa-soundcloud" aria-hidden="true"></span></a> </td>
+			<td> <a target="_blank"><span class="fa fa-facebook" aria-hidden="true"></span></a> </td>
 			<td> <a target="_blank"><span class="fa fa-instagram" aria-hidden="true"></span></a> </td>
 		</tr>
 	</table>
 </nav>
-<div class="menuIcon"><span>&#9776;</span><span>&times;</span></div>
+<div class="menuIcon"><span>&#9776; MENU</span><span>&times;</span></div>
 
 <section class="index-section">
 	<div class="sign">
@@ -58,6 +59,7 @@
 		</a>
 	</div>
 </section>
+
 <section class="about-section">
 	<button type="button"
 		onclick="enlargeText()">Bigger Text
@@ -84,6 +86,7 @@
 		</tr>
 	</table>
 </section>
+
 <section class="topstream-section">
 	<table class="charts">
 		<tr>
@@ -113,75 +116,77 @@
 		</tr>
 	</table>
 </section>
+
 <section class="search-section">
-	<h3>SEARCH YOUR FAVOURITES</h3>
-	<input id="musicSearch" type="text">
-	<button id="button4Filter">Search</button>
-	<button id="button4All">Show All</button>
+	<div class="container">
+		<h3>SEARCH YOUR FAVOURITES</h3>
+		<input id="musicSearch" type="text">
+		<button id="button4Filter">Search</button>
+		<button id="button4All">Show All</button>
 
-	<p id="storedInput" style="display:none"></p>
+		<p id="storedInput" style="display:none"></p>
 
-	<div id="storedData" style="display:none">
-	<p>Renato Korus</p>
-	<p>Marcia Brugger</p>
-	<p>Kizzie Allee</p>
-	<p>Dawn Alfieri</p>
-	<p>Phillis Patman</p>
-	<p>Jamal Rowlett</p>
-	<p>Jaunita Kirksey</p>
-	<p>Mallory Thomure</p>
-	<p>Marc Olmos</p>
-	<p>Leland Roten</p>
-	<p>Keila Lawalin</p>
-	<p>Veda Vaquera</p>
-	<p>Fiona Stutler</p>
-	<p>Donette Lamothe</p>
-	<p>Carmelo Pape</p>
-	<p>Lacy Busick</p>
-	<p>Rico Zeitz</p>
-	<p>Long Pipkins</p>
-	<p>Meridith Agostini</p>
-	<p>Jennie Buchholz</p>
-	<p>Emelina Mac</p>
-	<p>Margaretta Delamora</p>
-	<p>Sunni Enlow</p>
-	<p>Cherilyn Schurg</p>
-	<p>Clarine Theurer</p>
-	<p>Latia Barth</p>
-	<p>Zoraida Rozell</p>
-	<p>Agnes Ditch</p>
-	<p>Dominique Banning</p>
-	<p>Vergie Nilles</p>
-	<p>Gita Kintner</p>
-	<p>Carmel Lesh</p>
-	<p>Tricia Sanks</p>
-	<p>Marge Kraemer</p>
-	<p>Merry Able</p>
-	<p>Danica Yearsley</p>
-	<p>Davina Labombard</p>
-	<p>Mercy Mifflin</p>
-	<p>Ariane Batiste</p>
-	<p>Quinton Spiegel</p>
-	<p>Carolyne Ownbey</p>
-	<p>Bradly Hovey</p>
-	<p>Anita Keel</p>
-	<p>Camille Mccain</p>
-	<p>Brooks Hilyard</p>
-	<p>Joel Collins</p>
-	<p>Kittie Durling</p>
-	<p>Nicolle Klocke</p>
-	<p>Quintin Segawa</p>
-	<p>Zoe Uchida</p>
+		<div id="storedData" style="display:none">
+			<p>Renato Korus</p>
+			<p>Marcia Brugger</p>
+			<p>Kizzie Allee</p>
+			<p>Dawn Alfieri</p>
+			<p>Phillis Patman</p>
+			<p>Jamal Rowlett</p>
+			<p>Jaunita Kirksey</p>
+			<p>Mallory Thomure</p>
+			<p>Marc Olmos</p>
+			<p>Leland Roten</p>
+			<p>Keila Lawalin</p>
+			<p>Veda Vaquera</p>
+			<p>Fiona Stutler</p>
+			<p>Donette Lamothe</p>
+			<p>Carmelo Pape</p>
+			<p>Lacy Busick</p>
+			<p>Rico Zeitz</p>
+			<p>Long Pipkins</p>
+			<p>Meridith Agostini</p>
+			<p>Jennie Buchholz</p>
+			<p>Emelina Mac</p>
+			<p>Margaretta Delamora</p>
+			<p>Sunni Enlow</p>
+			<p>Cherilyn Schurg</p>
+			<p>Clarine Theurer</p>
+			<p>Latia Barth</p>
+			<p>Zoraida Rozell</p>
+			<p>Agnes Ditch</p>
+			<p>Dominique Banning</p>
+			<p>Vergie Nilles</p>
+			<p>Gita Kintner</p>
+			<p>Carmel Lesh</p>
+			<p>Tricia Sanks</p>
+			<p>Marge Kraemer</p>
+			<p>Merry Able</p>
+			<p>Danica Yearsley</p>
+			<p>Davina Labombard</p>
+			<p>Mercy Mifflin</p>
+			<p>Ariane Batiste</p>
+			<p>Quinton Spiegel</p>
+			<p>Carolyne Ownbey</p>
+			<p>Bradly Hovey</p>
+			<p>Anita Keel</p>
+			<p>Camille Mccain</p>
+			<p>Brooks Hilyard</p>
+			<p>Joel Collins</p>
+			<p>Kittie Durling</p>
+			<p>Nicolle Klocke</p>
+			<p>Quintin Segawa</p>
+			<p>Zoe Uchida</p>
+		</div>
+
+		<div id="output"></div>
 	</div>
-
-	<div id="output"></div>
-
 </section>
 <div id="toTop">Back to top</div>
 <!-- 		<div class="play"><div>Play</div></div> -->
 <!-- 		<img class="draftpic" src="draftpic.jpg" /> -->
 
-<!-- main javascript (jQuery) script for RWP -->
+<!-- main JavaScript file for project -->
 	<script src="rwp-js.js"></script>
 
 </body>
